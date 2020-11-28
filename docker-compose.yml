@@ -1,0 +1,26 @@
+version: "3.3"
+   
+services:
+  auctioner:
+    build: 
+      context: .
+      dockerfile: auctioner/Dockerfile
+    command: ./bin/auctioner
+    ports:
+      - "127.0.0.1:8080:8080"
+  bidder2:
+    build:
+      context: .
+      dockerfile: bidder/Dockerfile 
+    command: ./bin/bidder --port 9080 --URL "http://auctioner:8080/api/v1/register" --host bidder2 --delay.time 20ms
+    ports:
+      - "9080:9080"
+    depends_on:
+      - auctioner
+  bidder1:
+    image: socketprblm_bidder1
+    command: ./bin/bidder --port 9081 --URL "http://auctioner:8080/api/v1/register" --host bidder1 --delay.time 100ms
+    ports:
+      - "9081:9081"
+    depends_on:
+      - auctioner  

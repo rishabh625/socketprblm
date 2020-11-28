@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"github.com/rishabh625/socketprblm/auctioner/internal/handlers"
+	"github.com/rishabh625/socketprblm/auctioner/libs/handlers"
 	. "github.com/rishabh625/socketprblm/middleware"
 	"strconv"
 )

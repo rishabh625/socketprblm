@@ -8,10 +8,11 @@ import (
 	"log"
 	"net/http"
 	"os"
-	handlers "github.com/rishabh625/socketprblm/bidder/internal/handler"
-	object "github.com/rishabh625/socketprblm/bidder/internal/object"
-	. "github.com/rishabh625/socketprblm/middleware"
 	"strconv"
+
+	handlers "github.com/rishabh625/socketprblm/bidder/libs/handler"
+	object "github.com/rishabh625/socketprblm/bidder/libs/object"
+	. "github.com/rishabh625/socketprblm/middleware"
 )
 
 var (
@@ -35,8 +36,7 @@ func init() {
 }
 
 func main() {
-	fmt.Println("Starting Bidder")
-
+	flag.Parse()
 	if logfile == "" {
 		logger = log.New(os.Stdout, "", log.LstdFlags)
 	} else {
@@ -46,6 +46,7 @@ func main() {
 		}
 		logger = log.New(f, "", log.LstdFlags)
 	}
+	logger.Printf("Starting Bidder on %d", port)
 	handlers.Delaytime = delayms
 	strPort := ":" + strconv.Itoa(port)
 	http.Handle(bidPath, ServiceLoader(http.HandlerFunc(handlers.Bid), RequestMetrics(logger)))

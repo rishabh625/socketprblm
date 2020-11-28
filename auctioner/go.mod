@@ -1,3 +1,3 @@
-module github.com/rishabh625/socketprblm/auctioner
+module socketprblm/auctioner
 
 go 1.15

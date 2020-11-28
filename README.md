@@ -4,9 +4,9 @@
 
 ### Steps
 
-#### Clone repository in your GOPATH
+#### 1. Clone repository in your GOPATH
 
-#### Run below command
+#### 2. Run below command
 ```
 docker-compose up --build
 

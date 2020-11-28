@@ -1,14 +1,14 @@
 # Auction System
 
-# Deployments
+## Deployments
 
-# Steps
+### Steps
 
-## Clone repository in your GOPATH
+#### Clone repository in your GOPATH
 
-## Run below command
+#### Run below command
 ```
 docker-compose up --build
 
 ```
-# Use Postman Collection to send test bids
+## Use Postman Collection to send test bids

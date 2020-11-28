@@ -11,3 +11,4 @@
 docker-compose up --build
 
 ```
+# Use Postman Collection to send test bids
